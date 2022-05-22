@@ -8,13 +8,12 @@ function EventTable() {
     const [events, setEvent] = useState([]);
 
     useEffect(() => {
-        loadOrders();
+        loadEvents();
 
     }, []);
 
-    const loadOrders = async () => {
-
-        const result = await axios.get("https://localhost:44351/api/Event/GetAllEvents");
+    const loadEvents = async () => {
+        const result = await axios.get("/api/Event/GetAllEvents");
         setEvent(result.data);
 
     }
@@ -42,9 +41,8 @@ function EventTable() {
                         <tbody>
                             {
                                 
-                                events.map((levent =>
-                                    
-                                    <tr>
+                                events.map((levent =>                                    
+                                    <tr key={levent}>
                                         <td>{++count}</td>
                                         <td className="py-1">
                                             {levent.name}
@@ -56,7 +54,7 @@ function EventTable() {
                                             </div>
                                         </td>
                                         <td> $ {levent.price} </td>
-                                        <td> <i class="fas fa-trash-alt"></i> </td>
+                                        <td> <i className="fas fa-trash-alt"></i> </td>
                                         
                                     </tr>
                                 ))

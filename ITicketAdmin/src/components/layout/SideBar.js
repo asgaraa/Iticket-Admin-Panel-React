@@ -26,10 +26,10 @@ function SideBar() {
                     <span className="nav-link">Dashboard</span>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href='/'>
-                        <NavLink className="menu-title" to='/events'><span >Event</span></NavLink>
+                    
+                        <NavLink className="menu-title nav-link" to='/events'><span >Event</span></NavLink>
                         <i className="icon-screen-desktop menu-icon"></i>
-                    </a>
+                    
                 </li>
             </ul>
         </nav>
