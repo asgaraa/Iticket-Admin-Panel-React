@@ -49,7 +49,7 @@ function SideBar() {
                 <li className="nav-item">
 
 
-                    <NavLink className="menu-title nav-link" to='/halls'><span >Slider</span></NavLink>
+                    <NavLink className="menu-title nav-link" to='/slider'><span >Slider</span></NavLink>
                     <i className="icon-screen-desktop menu-icon"></i>
 
                 </li>

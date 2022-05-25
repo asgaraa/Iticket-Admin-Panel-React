@@ -8,6 +8,8 @@ import HallTable from './components/Hall/HallTable';
 import HallCreate from './components/Hall/HallCreate';
 import SeansTable from './components/Seans/SeansTable';
 import SeansCreate from './components/Seans/SeansCreate';
+import SliderTable from './components/Slider/SliderTable';
+import SliderCreate from './components/Slider/SliderCreate';
 function App() {
   return (
     <Router>
@@ -26,6 +28,8 @@ function App() {
                  <Route path="/halls" element={<HallTable/>}/>
                  <Route path="/seans" element={<SeansTable/>}/>
                  <Route path="/seanscreate" element={<SeansCreate/>}/>
+                 <Route path="/slider" element={<SliderTable/>}/>
+                 <Route path="/slidercreate" element={<SliderCreate/>}/>
                </Routes>
               </div>
             </div>
