@@ -5,6 +5,9 @@ import Navbar from './components/layout/Navbar'
 import EventTable from './components/Event/EventTable';
 import CreateEvent from './components/Event/CreateEvent';
 import HallTable from './components/Hall/HallTable';
+import HallCreate from './components/Hall/HallCreate';
+import SeansTable from './components/Seans/SeansTable';
+import SeansCreate from './components/Seans/SeansCreate';
 function App() {
   return (
     <Router>
@@ -19,7 +22,10 @@ function App() {
                <Routes>
                  <Route path="/events" element={<EventTable/>}/>
                  <Route path="/eventcreate" element={<CreateEvent/>}/>
+                 <Route path="/hallcreate" element={<HallCreate/>}/>
                  <Route path="/halls" element={<HallTable/>}/>
+                 <Route path="/seans" element={<SeansTable/>}/>
+                 <Route path="/seanscreate" element={<SeansCreate/>}/>
                </Routes>
               </div>
             </div>

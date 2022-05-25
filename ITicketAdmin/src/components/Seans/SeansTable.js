@@ -2,20 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-function HallTable() {
+function SeansTable() { let count = 0;
 
-    let count = 0;
-
-    const [halls, setHall] = useState([]);
+    const [seans, setSeans] = useState([]);
 
     useEffect(() => {
-        loadHalls();
+        loadSeans();
 
     }, []);
 
-    const loadHalls = async () => {
-        const result = await axios.get("/api/hall/getallhalls");
-        setHall(result.data);
+    const loadSeans = async () => {
+        const result = await axios.get("/api/Seans/GetAllSeans");
+        setSeans(result.data);
 
     }
 
@@ -26,28 +24,27 @@ function HallTable() {
             <div className="card">
                 <div className="card-body">
                     <h4 className="card-title d-flex justify-content-between">Event
-                        <Link to='/hallcreate' className="btn btn-success btn-fw">Create Hall</Link>
+                        <Link to='/seanscreate' className="btn btn-success btn-fw">Create Hall</Link>
                     </h4>
                     <table className="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th> Hall name </th>
-                                <th> Hall Address </th>
-                                <th> Place </th>
+                                <th> Seans Name </th>
+                                <th> Seans Hour </th>
                                 <th> Settings </th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                halls.map((hall =>
-                                    <tr key={hall.id}>
+                                seans.map((seanss =>
+                                    <tr key={seanss.id}>
                                         <td>{++count}</td>
                                         <td className="py-1">
-                                            {hall.name}
+                                            {seanss.name}
                                         </td>
-                                        <td> {hall.address} </td>
-                                        <td> {hall.place} </td>
+                                        <td> {seanss.hour} </td>
+                                       
                                         <td> <i className="fas fa-trash-alt"></i> </td>
 
                                     </tr>
@@ -60,7 +57,7 @@ function HallTable() {
             </div>
         </div>
 
-    )
+  )
 }
 
-export default HallTable
+export default SeansTable
