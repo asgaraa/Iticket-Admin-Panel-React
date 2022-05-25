@@ -37,7 +37,9 @@ function CategoryCreate() {
 
 
 
-    }
+    };
+
+   
     //Prop for api end
     return (
         <div className='container'>
