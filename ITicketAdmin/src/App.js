@@ -10,6 +10,8 @@ import SeansTable from './components/Seans/SeansTable';
 import SeansCreate from './components/Seans/SeansCreate';
 import SliderTable from './components/Slider/SliderTable';
 import SliderCreate from './components/Slider/SliderCreate';
+import CategoryTable from './components/Category/CategoryTable';
+import CategoryCreate from './components/Category/CategoryCreate';
 function App() {
   return (
     <Router>
@@ -30,6 +32,8 @@ function App() {
                  <Route path="/seanscreate" element={<SeansCreate/>}/>
                  <Route path="/slider" element={<SliderTable/>}/>
                  <Route path="/slidercreate" element={<SliderCreate/>}/>
+                 <Route path="/category" element={<CategoryTable/>}/>
+                 <Route path="/categorycreate" element={<CategoryCreate/>}/>
                </Routes>
               </div>
             </div>

@@ -4,7 +4,8 @@ import axios from 'axios';
 
 function SliderTable() { let count = 0;
 
-    const [slider, setSlider] = useState([]);
+    const [sliders, setSlider] = useState([]);
+    
 
     useEffect(() => {
         loadSlider();
@@ -16,9 +17,8 @@ function SliderTable() { let count = 0;
         setSlider(result.data);
 
     }
-    let data = "data:image/jpeg;base64,";
-    let fullImg = data + slider.image;
-
+   
+    
     return (
 
         <div className="col-lg-12 grid-margin stretch-card">
@@ -38,11 +38,11 @@ function SliderTable() { let count = 0;
                         </thead>
                         <tbody>
                             { 
-                                slider.map((sliders =>                                    
-                                    <tr key={sliders.id}>
+                                sliders.map((slider=>                                    
+                                    <tr key={slider.id}>
                                         <td>{++count}</td>
                                         <td className="py-1">
-                                            <img src={fullImg} alt="" />
+                                            <img src={`data:image/jpeg;base64,${slider.image}`} alt="" />
                                           
                                         </td>
                                         
