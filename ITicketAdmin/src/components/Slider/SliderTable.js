@@ -51,7 +51,7 @@ function SliderTable() { let count = 0;
                                           
                                         </td>
                                         
-                                        <td><Link to={'/'} className='btn btn-warning'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteSlider(slider.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={'/'} className='btn btn-warning'><i className="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteSlider(slider.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                         
                                     </tr>
                                 ))

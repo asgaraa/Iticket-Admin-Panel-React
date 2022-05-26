@@ -20,7 +20,7 @@ function HallTable() {
     }
 
     const deleteHall = async id => {
-        debugger
+   
         await axios.delete(`/api/Hall/DeleteHall/${id}`);
         loadHalls();
     }
@@ -54,7 +54,7 @@ function HallTable() {
                                         </td>
                                         <td> {hall.address} </td>
                                         <td> {hall.place} </td>
-                                        <td><Link to={'/'} className='btn btn-warning'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteHall(hall.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={'/'} className='btn btn-warning'><i className="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteHall(hall.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                     </tr>
                                 ))
 

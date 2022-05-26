@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// import UpdateCategory from './UpdateCategory';
+
 
 function CategoryTable() {
     let count = 0;
@@ -19,18 +21,14 @@ function CategoryTable() {
     }
 
     const deleteCategory = async id => {
-        debugger
+
         await axios.delete(`/api/Category/DeleteCategory/${id}`);
         loadCategory();
     }
 
-    // const updateCategory = async id => {
-    //     debugger
-    //     await axios.put(`/api/Category/UpdateCategory/${id}`);
-    //     loadCategory();
-    // }
+    
 
-
+console.log(categories);
 
 
 
@@ -53,12 +51,13 @@ function CategoryTable() {
                         <tbody>
                             {
                                 categories.map((category =>
+                                    
                                     <tr key={category.id}>
                                         <td>{++count}</td>
                                         <td className="py-1">
                                             {category.name}
                                         </td>
-                                        <td><Link to={'/'} className='btn btn-warning'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteCategory(category.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={`/categoryupdate/${category.id}`} className='btn btn-outline-warning' ><i className="far fa-edit"></i></Link> <button className='btn btn-outline-danger' onClick={() => deleteCategory(category.id)}> <i className="fas fa-trash-alt"></i></button> </td>
 
                                     </tr>
                                 ))

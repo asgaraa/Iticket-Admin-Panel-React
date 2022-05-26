@@ -18,7 +18,7 @@ function EventTable() {
 
     }
     const deleteEvent = async id => {
-        debugger
+      
         await axios.delete(`/api/Event/DeleteEvent/${id}`);
         loadEvents();
     }
@@ -60,7 +60,7 @@ function EventTable() {
                                             </div>
                                         </td>
                                         <td> $ {levent.price} </td>
-                                        <td><Link to={'/'} className='btn btn-warning'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteEvent(levent.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={'/'} className='btn btn-warning'><i className="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteEvent(levent.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                         
                                     </tr>
                                 ))

@@ -12,6 +12,7 @@ import SliderTable from './components/Slider/SliderTable';
 import SliderCreate from './components/Slider/SliderCreate';
 import CategoryTable from './components/Category/CategoryTable';
 import CategoryCreate from './components/Category/CategoryCreate';
+import UpdateCategory from './components/Category/UpdateCategory';
 function App() {
   return (
     <Router>
@@ -34,6 +35,7 @@ function App() {
                  <Route path="/slidercreate" element={<SliderCreate/>}/>
                  <Route path="/category" element={<CategoryTable/>}/>
                  <Route path="/categorycreate" element={<CategoryCreate/>}/>
+                 <Route path="/categoryupdate" element={<UpdateCategory/>}/>
                </Routes>
               </div>
             </div>
