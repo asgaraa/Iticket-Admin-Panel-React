@@ -39,7 +39,7 @@ function CategoryTable() {
         <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
                 <div className="card-body">
-                    <h4 className="card-title d-flex justify-content-between">Event
+                    <h4 className="card-title d-flex justify-content-between">Categories
                         <Link to='/categorycreate' className="btn btn-success btn-fw">Create Category</Link>
                     </h4>
                     <table className="table table-striped">
@@ -58,7 +58,7 @@ function CategoryTable() {
                                         <td className="py-1">
                                             {category.name}
                                         </td>
-                                        <td><Link to={'/'} className='btn btn-success'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteCategory(category.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={'/'} className='btn btn-warning'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteCategory(category.id)}> <i className="fas fa-trash-alt"></i></button> </td>
 
                                     </tr>
                                 ))

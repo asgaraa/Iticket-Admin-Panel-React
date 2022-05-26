@@ -17,6 +17,11 @@ function SliderTable() { let count = 0;
         setSlider(result.data);
 
     }
+    const deleteSlider= async id => {
+        debugger
+        await axios.delete(`/api/Slider/Delete/${id}`);
+        loadSlider();
+    }
    
     
     return (
@@ -24,8 +29,8 @@ function SliderTable() { let count = 0;
         <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
                 <div className="card-body">
-                    <h4 className="card-title d-flex justify-content-between">Event
-                        <Link to='/eventcreate' className="btn btn-success btn-fw">Create Event</Link>
+                    <h4 className="card-title d-flex justify-content-between">Sliders
+                        <Link to='/eventcreate' className="btn btn-success btn-fw">Create Slider</Link>
                     </h4>
                     <table className="table table-striped">
                         <thead>
@@ -46,7 +51,7 @@ function SliderTable() { let count = 0;
                                           
                                         </td>
                                         
-                                        <td> <i className="fas fa-trash-alt"></i> </td>
+                                        <td><Link to={'/'} className='btn btn-warning'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteSlider(slider.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                         
                                     </tr>
                                 ))

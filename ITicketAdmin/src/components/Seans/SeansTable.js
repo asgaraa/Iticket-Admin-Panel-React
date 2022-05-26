@@ -17,7 +17,11 @@ function SeansTable() { let count = 0;
 
     }
 
-
+    const deleteSeans = async id => {
+        debugger
+        await axios.delete(`/api/Seans/DeleteSeans/${id}`);
+        loadSeans();
+    }
 
     return (
         <div className="col-lg-12 grid-margin stretch-card">
@@ -45,7 +49,7 @@ function SeansTable() { let count = 0;
                                         </td>
                                         <td> {seanss.hour} </td>
                                        
-                                        <td> <i className="fas fa-trash-alt"></i> </td>
+                                        <td><Link to={'/'} className='btn btn-warning'><i class="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteSeans(seanss.id)}> <i className="fas fa-trash-alt"></i></button> </td>
 
                                     </tr>
                                 ))
