@@ -35,7 +35,7 @@ function App() {
                  <Route path="/slidercreate" element={<SliderCreate/>}/>
                  <Route path="/category" element={<CategoryTable/>}/>
                  <Route path="/categorycreate" element={<CategoryCreate/>}/>
-                 <Route path="/categoryupdate" element={<UpdateCategory/>}/>
+                 <Route path="/categoryupdate/:id" element={<UpdateCategory/>}/>
                </Routes>
               </div>
             </div>

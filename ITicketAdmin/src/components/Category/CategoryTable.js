@@ -26,9 +26,11 @@ function CategoryTable() {
         loadCategory();
     }
 
-    
+    const UpdateCategory = async id => {
+       console.log(id);
+    }
 
-console.log(categories);
+   
 
 
 
@@ -51,13 +53,13 @@ console.log(categories);
                         <tbody>
                             {
                                 categories.map((category =>
-                                    
+
                                     <tr key={category.id}>
                                         <td>{++count}</td>
                                         <td className="py-1">
                                             {category.name}
                                         </td>
-                                        <td><Link to={`/categoryupdate/${category.id}`} className='btn btn-outline-warning' ><i className="far fa-edit"></i></Link> <button className='btn btn-outline-danger' onClick={() => deleteCategory(category.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={`/categoryupdate/${category.id}`}  ><button className='btn btn-outline-warning' onClick={()=> UpdateCategory(category.id)} ><i className="far fa-edit"></i></button></Link> <button className='btn btn-outline-danger' onClick={() => deleteCategory(category.id)}> <i className="fas fa-trash-alt"></i></button> </td>
 
                                     </tr>
                                 ))
