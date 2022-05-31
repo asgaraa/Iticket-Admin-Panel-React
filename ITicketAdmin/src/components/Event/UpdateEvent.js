@@ -35,7 +35,7 @@ function UpdateEvent(props) {
 
 
   function initPromise() {
-    debugger
+
     const response = axios.get(`/api/Event/GetById/${id}`)
     return new Promise(function (res, rej) {
       res(response);
@@ -43,7 +43,7 @@ function UpdateEvent(props) {
   }
 
   async function update(e) {
-    debugger
+  
     e.preventDefault();
     await axios.put(`/api/Event/UpdateEvent/${id}`, {
       Id: id,
@@ -155,7 +155,6 @@ function UpdateEvent(props) {
         setHall(result.hall);
         setCategory(result.category);
         setPrice(result.price)
-
       });
   });
   return (
