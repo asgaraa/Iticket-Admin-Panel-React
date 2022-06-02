@@ -34,7 +34,7 @@ function SliderTable() { let count = 0;
             <div className="card">
                 <div className="card-body">
                     <h4 className="card-title d-flex justify-content-between">Sliders
-                        <Link to='/eventcreate' className="btn btn-success btn-fw">Create Slider</Link>
+                        <Link to='/slidercreate' className="btn btn-success btn-fw">Create Slider</Link>
                     </h4>
                     <table className="table table-striped">
                         <thead  >
