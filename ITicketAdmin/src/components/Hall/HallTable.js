@@ -14,21 +14,19 @@ function HallTable() {
     const pagePostsLimit = 5;
     let count = ((currentPage - 1) * pagePostsLimit);
 
-    console.log('aaa');
+  
 
     function initPromise() {
-        console.log('sss');
+  
         axios.get(`/api/hall/getallhalls`)
             .then(res => {
                 setHall(res.data);
-                console.log(res.data.length);
+           
                 setTot(res.data.length)
             })
     }
     
-    (function() {
-        console.log('IIFE');
-    })();
+  
 
     useEffect(() => {        
         initPromise();
@@ -41,7 +39,7 @@ function HallTable() {
     const HallUpdate = async id => {
         console.log(id);
     }
-    console.log('ddd');
+    
     return (
        
         <div className="col-lg-12 grid-margin stretch-card">
@@ -72,7 +70,7 @@ function HallTable() {
                                         </td>
                                         <td> {hall.address} </td>
                                         <td> {hall.place} </td>
-                                        <td><Link to={`/hallupdate/${hall.id}`}  ><button className='btn btn-outline-warning' onClick={() => HallUpdate(hall.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-danger' onClick={() => deleteHall(hall.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={`/hallupdate/${hall.id}`}  ><button className='btn btn-outline-warning' onClick={() => HallUpdate(hall.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-outline-danger' onClick={() => deleteHall(hall.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                     </tr>
                                 ))
                             }

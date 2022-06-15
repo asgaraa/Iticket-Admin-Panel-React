@@ -6,8 +6,8 @@ import EventTable from './components/Event/EventTable';
 import CreateEvent from './components/Event/CreateEvent';
 import HallTable from './components/Hall/HallTable';
 import HallCreate from './components/Hall/HallCreate';
-import SeansTable from './components/Seans/SeansTable';
-import SeansCreate from './components/Seans/SeansCreate';
+// import SeansTable from './components/Seans/SeansTable';
+// import SeansCreate from './components/Seans/SeansCreate';
 import SliderTable from './components/Slider/SliderTable';
 import SliderCreate from './components/Slider/SliderCreate';
 import CategoryTable from './components/Category/CategoryTable';
@@ -15,8 +15,9 @@ import CategoryCreate from './components/Category/CategoryCreate';
 import UpdateCategory from './components/Category/UpdateCategory';
 import HallUpdate from './components/Hall/HallUpdate';
 import SliderUpdate from './components/Slider/SliderUpdate';
-import SeansUpdate from './components/Seans/SeansUpdate';
-import EventUpdate from './components/Event/UpdateEvent';
+// import SeansUpdate from './components/Seans/SeansUpdate';
+
+import UpdateEvent from './components/Event/UpdateEvent';
 function App() {
   return (
     <Router>
@@ -33,8 +34,8 @@ function App() {
                  <Route path="/eventcreate" element={<CreateEvent/>}/>
                  <Route path="/hallcreate" element={<HallCreate/>}/>
                  <Route path="/halls" element={<HallTable/>}/>
-                 <Route path="/seans" element={<SeansTable/>}/>
-                 <Route path="/seanscreate" element={<SeansCreate/>}/>
+                 {/* <Route path="/seans" element={<SeansTable/>}/>
+                 <Route path="/seanscreate" element={<SeansCreate/>}/> */}
                  <Route path="/slider" element={<SliderTable/>}/>
                  <Route path="/slidercreate" element={<SliderCreate/>}/>
                  <Route path="/category" element={<CategoryTable/>}/>
@@ -42,8 +43,8 @@ function App() {
                  <Route path="/categoryupdate/:id" element={<UpdateCategory/>}/>
                  <Route path="/hallupdate/:id" element={<HallUpdate/>}/>
                  <Route path="/sliderupdate/:id" element={<SliderUpdate/>}/>
-                 <Route path="/seansupdate/:id" element={<SeansUpdate/>}/>
-                 <Route path="/eventupdate/:id" element={<EventUpdate/>}/>
+                 {/* <Route path="/seansupdate/:id" element={<SeansUpdate/>}/> */}
+                 <Route path="/eventupdate/:id" element={<UpdateEvent/>}/>
                </Routes>
               </div>
             </div>

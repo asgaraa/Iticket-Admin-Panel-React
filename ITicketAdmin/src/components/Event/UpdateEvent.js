@@ -13,7 +13,7 @@ function UpdateEvent(props) {
   const [price, setPrice] = useState();
   const [date, setDate] = useState();
   const [category, setCategory] = useState();
-  const [hall, setHall] = useState();
+
   const [bgimg, setbgImg] = useState();
   const [img, setImg] = useState();
   const [detailimg, setdetailImg] = useState();
@@ -35,7 +35,7 @@ function UpdateEvent(props) {
 
 
   function initPromise() {
-
+debugger
     const response = axios.get(`/api/Event/GetById/${id}`)
     return new Promise(function (res, rej) {
       res(response);
@@ -43,7 +43,7 @@ function UpdateEvent(props) {
   }
 
   async function update(e) {
-  
+
     e.preventDefault();
     await axios.put(`/api/Event/UpdateEvent/${id}`, {
       Id: id,
@@ -141,6 +141,7 @@ function UpdateEvent(props) {
 
 
   useEffect(() => {
+    
     initPromise()
       .then(function (result) {
         // "initResolve"
@@ -152,7 +153,7 @@ function UpdateEvent(props) {
         setbgImg(result.backimage)
         setdetailImg(result.detailimg)
         setDate(result.date)
-        setHall(result.hall);
+    
         setCategory(result.category);
         setPrice(result.price)
       });
@@ -186,15 +187,15 @@ function UpdateEvent(props) {
         </Form.Group>
         <FormGroup className='mt-2'>
           <Form.Select aria-label="Event Category" onChange={(e) => setnewCategory(e.target.value)} defaultValue={category}>
-            <option>{category}</option>
+    
             {categories.map((category =>
               <option key={category.id} value={category.id}>{category.name}</option>
             ))}
           </Form.Select>
         </FormGroup>
-        <FormGroup onChange={(e) => setnewHall(e.target.value)}  className='mt-2'>
+        <FormGroup onChange={(e) => setnewHall(e.target.value)} className='mt-2'>
           <Form.Select aria-label="Event Hall">
-            <option>{hall}</option>
+       
             {halls.map((hall =>
               <option key={hall.id} value={hall.id}>{hall.name}</option>
             ))}

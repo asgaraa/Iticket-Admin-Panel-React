@@ -98,7 +98,6 @@ function CreateEvent() {
     }
 
     function base64DetailImg(file) {
-        debugger
         var base64String = getBase64(file);
         base64String.then(function (result) {
             setdetailImg(result)

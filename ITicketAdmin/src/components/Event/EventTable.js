@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Pagination } from "react-pagination-bar"
 import axios from 'axios';
 
 function EventTable() {
-    let count = 0;
+   
 
     const [events, setEvent] = useState([]);
+    const [tot, setTot] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
+    
+
+    const pagePostsLimit = 5;
+    let count = ((currentPage - 1) * pagePostsLimit);
 
     useEffect(() => {
         loadEvents();
@@ -15,6 +22,7 @@ function EventTable() {
     const loadEvents = async () => {
         const result = await axios.get("/api/Event/GetAllEvents");
         setEvent(result.data);
+        setTot(result.data.length)
 
     }
     const deleteEvent = async id => {
@@ -41,30 +49,29 @@ function EventTable() {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th> Event name </th>
+                                <th> Event Image </th>
+                                <th> Event Name </th>
                                 <th> Date </th>
-                                <th> Progress </th>
+                                
                                 <th> Amount </th>
                                 <th> Settings </th>
                             </tr>
                         </thead>
                         <tbody>
                             { 
-                                events.map((levent =>                                    
+                                events.slice((currentPage - 1) * pagePostsLimit, currentPage * pagePostsLimit).map((levent =>                                    
                                     <tr key={levent.id}>
                                         <td>{++count}</td>
+                                        <td className="py-1">
+                                          <img style={{width:'100px', height:'70px',borderRadius:'unset'}} src={`data:image/jpeg;base64,${levent.detailImage}`} alt="" />
+                                        </td>
                                         <td className="py-1">
                                             {levent.name}
                                         </td>
                                         <td> {levent.date.substring(0, 10)} </td>
-                                        <td>
-                                            <div className="progress">
-
-                                                <div className="progress-bar bg-success" role="progressbar" style={{ width: '75%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td> ₼ {levent.price} </td>
-                                        <td><Link to={`/eventupdate/${levent.id}`}  ><button className='btn btn-outline-warning' onClick={()=> UpdateEvent(levent.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-danger' onClick={() => deleteEvent(levent.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                      
+                                        <td> {levent.price} ₼  </td>
+                                        <td><Link to={`/eventupdate/${levent.id}`}  ><button className='btn btn-outline-warning' onClick={()=> UpdateEvent(levent.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-outline-danger' onClick={() => deleteEvent(levent.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                         
                                     </tr>
                                 ))
@@ -73,6 +80,18 @@ function EventTable() {
                         </tbody>
                     </table>
                 </div>
+                <Pagination
+                    startLabel={false}
+                    endLabel={false}
+                    onlyPageNumbers={true}
+                    initialPage={currentPage}
+                    itemsPerPage={pagePostsLimit}
+                    totalItems={tot}
+                    onPageСhange={(pageNumber) => setCurrentPage(pageNumber)}
+                    pageNeighbours={1}
+                    nextLabel={'>'}
+                    prevLabel={'<'}
+                />
             </div>
         </div>
 
