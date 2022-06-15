@@ -151,7 +151,7 @@ debugger
         setName(result.name) // "normalReturn"
         setImg(result.img)
         setbgImg(result.backimage)
-        setdetailImg(result.detailimg)
+        setdetailImg(result.detailImage)
         setDate(result.date)
     
         setCategory(result.category);
@@ -160,6 +160,9 @@ debugger
   });
   return (
     <div className='container'>
+      <div className='updaimg'>
+        <img className='updateimg mb-3' src={`data:image/jpeg;base64,${detailimg}`} alt="" />
+      </div>
       <Form onSubmit={(e) => update(e)}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Event Name</Form.Label>
